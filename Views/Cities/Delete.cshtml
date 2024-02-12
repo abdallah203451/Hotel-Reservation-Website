@@ -1,0 +1,30 @@
+﻿@model City
+
+<h1 class="alert alert-danger text-center">Are you sure you want to delete this?</h1>
+
+<div class="row">
+    <dl class="row col-6">
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.Id)</dd>
+        @*<dd class="col-10">@Model.Id</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.CityName)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.CityName)</dd>
+        @*<dd class="col-10">@Model.FullName</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e => e.CountryName)</dt>
+        <dd class="col-10">@Html.DisplayFor(e => e.CountryName)</dd>
+        @*<dd class="col-10">@Model.Position</dd>*@
+    </dl>
+
+    <div class="col-6">
+        <img src="@Model.ImageUrl" style="width:50%;aspect-ratio:1/1" />
+    </div>
+</div>
+
+<form method="post" asp-controller="Cities" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="Id"/>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a asp-controller="Cities" asp-action="GetIndexView">Back to List</a>

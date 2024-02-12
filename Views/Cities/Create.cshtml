@@ -1,0 +1,51 @@
+﻿@model City
+
+<h1 class="alert alert-warning text-center">
+    Create City
+</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Cities" asp-action="AddNew" enctype="multipart/form-data">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div>
+            @*<label>@Html.DisplayNameFor(e=>e.FullName)</label>*@
+            <label asp-for="CityName"></label>
+            <input type="text" asp-for="CityName" class="form-control" />
+            <span asp-validation-for="CityName" class="text-danger"></span>
+        </div>
+
+        <div>
+            @*<label>@Html.DisplayNameFor(e=>e.Position)</label>*@
+            <label asp-for="CountryName"></label>
+            <input type="text" asp-for="CountryName" class="form-control" />
+            <span asp-validation-for="CountryName" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ImageUrl"></label>
+            <input type="file" name="imageFormFile" id="imageFormFile" accept=".png,.jpg" onchange="AddImage()" class="form-control"/>
+        </div>
+
+
+        <div>
+            <button type="submit" class="btn btn-primary mt-1">Add</button>
+            <a asp-controller="Cities" asp-action="GetIndexView">Back to List</a>
+        </div>
+    </form>
+
+    <div class="col-4">
+        <img src="" id="cityImage" style="object-fit:contain" />
+    </div>
+
+</div>
+
+
+@section Scripts{
+    <script>
+        function AddImage(){
+            document.getElementById('cityImage').src = window.URL.createObjectURL(document.getElementById('imageFormFile').files[0]);
+        }
+    </script>
+}

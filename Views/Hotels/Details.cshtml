@@ -1,0 +1,34 @@
+﻿@model Hotel
+
+<h1 class="alert alert-info text-center">@Html.DisplayFor(e=>e.Name) Details</h1>
+
+
+<div class="row">
+	<dl class="row col-6">
+		<dt class="col-2">@Html.DisplayNameFor(e=>e.Id)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=>e.Id)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e=>e.Name)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=>e.Name)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e => e.Description)</dt>
+		<dd class="col-10">@Html.DisplayFor(e => e.Description)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e=> e.Rate)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=> e.Rate)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e=>e.Star)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=>e.Star)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e=>e.Price)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=>e.Price)</dd>
+
+		<dt class="col-2">@Html.DisplayNameFor(e=>e.CityId)</dt>
+		<dd class="col-10">@Html.DisplayFor(e=>e.City.CityName)</dd>
+	</dl>
+
+	<div class="col-6">
+		<img src="@Html.DisplayFor(e=>e.ImageUrl)" style="width:50%;aspect-ratio:1/1" />
+	</div>
+</div>
+<a asp-controller="Hotels" asp-action="GetIndexView">Back to List</a>

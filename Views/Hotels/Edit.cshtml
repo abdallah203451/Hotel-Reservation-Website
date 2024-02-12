@@ -1,0 +1,78 @@
+﻿@model Hotel
+
+<h1 class="alert alert-warning text-center">
+    Edit Hotel
+</h1>
+
+<div class="row">
+    <form class="col-4" method="post" asp-controller="Hotels" asp-action="EditCurrent" enctype="multipart/form-data">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="Id" />
+        <input type="hidden" asp-for="ImageUrl"/>
+
+        <div>
+            <label asp-for="Name"></label>
+            <input type="text" asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Description"></label>
+            <input type="text" asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Rate"></label>
+            <input type="number" asp-for="Rate" step="0.1" class="form-control" />
+            <span asp-validation-for="Rate" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Star"></label>
+            <input type="number" asp-for="Star" step="1" class="form-control" />
+            <span asp-validation-for="Star" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Price"></label>
+            <input type="number" asp-for="Price" step="0.01" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="ImageUrl"></label>
+            <input type="file" name="imageFormFile" id="imageFormFile" accept=".png,.jpg" onchange="AddImage()" class="form-control" />
+        </div>
+
+        <div>
+            <label asp-for="CityId"></label>
+            <select asp-for="CityId" asp-items="@ViewBag.CitySelectItems" class="form-control">
+                <option selected disabled>Select...</option>
+            </select>
+        </div>
+
+
+
+        <div>
+            <button type="submit" class="btn btn-primary mt-1">Edit</button>
+            <a asp-controller="Hotels" asp-action="GetIndexView">Back to List</a>
+        </div>
+    </form>
+
+    <div class="col-4">
+        <img src="@Html.DisplayFor(e=>e.ImageUrl)" id="hotelImage" style="object-fit:contain" />
+    </div>
+
+
+</div>
+
+@section Scripts{
+    <script>
+        function AddImage() {
+            document.getElementById('hotelImage').src = window.URL.createObjectURL(document.getElementById('imageFormFile').files[0]);
+        }
+    </script>
+}

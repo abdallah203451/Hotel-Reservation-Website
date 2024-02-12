@@ -1,0 +1,87 @@
+﻿@model IEnumerable<City>
+
+<h1 class="alert alert-info text-center">
+	Cities
+</h1>
+
+<a asp-controller="Cities" asp-action="GetCreateView" class="btn btn-success mb-1">
+	Create New
+</a>
+<div style="font-size:25px" class="col-9">
+	<form method="get" asp-controller="Cities" asp-action="GetIndexView">
+
+		<label for="search2">City Name</label>
+		<input type="text" name="search2" id="search2" />
+
+		<label class="col-2"></label>
+
+		<button style="font-size:22px; padding: 7px 45px;" type="submit" class="btn btn-primary mb-1">Search</button>
+	</form>
+</div>
+
+@if (Model.Count() > 0)
+{
+@*		<table class="table table-bordered table-striped table-hover">
+		<thead>
+			<tr>
+				<th>@Html.DisplayNameFor(e=>e.Id)</th>
+				<th>@Html.DisplayNameFor(e=>e.CityName)</th>
+				<th>@Html.DisplayNameFor(e=>e.CountryName)</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in Model)
+			{
+				<tr>
+					<td>@item.Id</td>
+					<td>@item.CityName</td>
+					<td>@item.CountryName</td>
+					<td>
+						<a asp-controller="Cities" asp-action="GetDetailsView"
+						   asp-route-id="@item.Id" class="btn btn-outline-success" title="Details"><i class="bi bi-list-ul"></i></a>
+
+						<a asp-controller="Cities" asp-action="GetEditView"
+						   asp-route-id="@item.Id" class="btn btn-outline-primary" title="Edit"><i class="bi bi-pencil-square"></i></a>
+
+						<a asp-controller="Hotels" asp-action="GetDeleteView"
+						   asp-route-id="@item.Id" class="btn btn-outline-danger" title="Delete"><i class="bi bi-trash"></i></a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>*@
+
+	<div class="row row-cols-3 g-3">
+		@foreach (var item in Model)
+		{
+			<div class="col">
+				<div class="card">
+					<img style="height:20%" src="@item.ImageUrl" class="card-img-top"
+						 alt="Hollywood Sign on The Hill" />
+					<div class="card-body" style=" display:flex; flex-direction:row;">
+							<div style="font-size:x-large; width:70%; text-align:justify;">
+							@item.CityName-@item.CountryName
+							</div>
+						<div style="width:50%; text-align:justify;">
+							<a asp-controller="Cities" asp-action="GetDetailsView"
+							   asp-route-id="@item.Id" class="btn btn-outline-success" title="Details" ><i class="bi bi-list-ul"></i></a>
+
+							<a asp-controller="Cities" asp-action="GetEditView"
+							   asp-route-id="@item.Id" class="btn btn-outline-primary" title="Edit"><i class="bi bi-pencil-square"></i></a>
+
+							<a asp-controller="Cities" asp-action="GetDeleteView"
+							   asp-route-id="@item.Id" class="btn btn-outline-danger " title="Delete"><i class="bi bi-trash"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+
+
+}
+else
+{
+	<h1 class="alert alert-danger text-center">There is no data.</h1>
+}

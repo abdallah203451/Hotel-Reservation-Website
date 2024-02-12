@@ -1,0 +1,45 @@
+﻿@model Hotel
+
+<h1 class="alert alert-danger text-center">Are you sure you want to delete this?</h1>
+
+<div class="row">
+    <dl class="row col-6">
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.Id)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.Id)</dd>
+        @*<dd class="col-10">@Model.Id</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.Name)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.Name)</dd>
+        @*<dd class="col-10">@Model.FullName</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e => e.Description)</dt>
+        <dd class="col-10">@Html.DisplayFor(e => e.Description)</dd>
+        @*<dd class="col-10">@Model.Position</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=> e.Rate)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=> e.Rate)</dd>
+        @*<dd class="col-10">@Model.Salary</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.Star)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.Star)</dd>
+        @*<dd class="col-10">@Model.BirthDate</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.Price)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.Price)</dd>
+        @*<dd class="col-10">@Model.JoinDate</dd>*@
+
+        <dt class="col-2">@Html.DisplayNameFor(e=>e.CityId)</dt>
+        <dd class="col-10">@Html.DisplayFor(e=>e.City.CityName)</dd>
+    </dl>
+
+    <div class="col-6">
+        <img src="@Html.DisplayFor(e=>e.ImageUrl)" style="width:50%;aspect-ratio:1/1" />
+    </div>
+</div>
+
+<form method="post" asp-controller="Hotels" asp-action="DeleteCurrent">
+    <input type="hidden" asp-for="Id"/>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+<a asp-controller="Hotels" asp-action="GetIndexView">Back to List</a>

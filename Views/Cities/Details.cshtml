@@ -1,0 +1,102 @@
+﻿@model City
+
+<h1 class="alert alert-info text-center">@Html.DisplayFor(e=>e.CityName) Details</h1>
+<div class="mb-5">
+	<div class="row ms-5">
+		<dl class="row col-6">
+			<dt class="col-2">@Html.DisplayNameFor(e=>e.Id)</dt>
+			<dd class="col-10">@Html.DisplayFor(e=>e.Id)</dd>
+			@*<dd class="col-10">@Model.Id</dd>*@
+
+			<dt class="col-2">@Html.DisplayNameFor(e=>e.CityName)</dt>
+			<dd class="col-10">@Html.DisplayFor(e=>e.CityName)</dd>
+			@*<dd class="col-10">@Model.FullName</dd>*@
+
+			<dt class="col-2">@Html.DisplayNameFor(e => e.CountryName)</dt>
+			<dd class="col-10">@Html.DisplayFor(e => e.CountryName)</dd>
+			@*<dd class="col-10">@Model.Position</dd>*@
+		</dl>
+
+		<div class="col-6">
+			<img src="@Html.DisplayFor(e => e.ImageUrl)" style="width:50%;aspect-ratio:1/1" />
+		</div>
+
+	</div>
+</div>
+
+@if (Model != null)
+{
+	@foreach (var item in Model.Hotels)
+	{
+		<section style="background-color: #eee;" class="ps-5 pe-5">
+			<div class=" py-5">
+				<div class="row justify-content-center mb-3 rounded-3">
+					<div>
+						<div class="card shadow-0 border" style="border-radius: 25px;">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-md-12 col-lg-3 col-xl-3 mb-4 mb-lg-0">
+										<div class="bg-image hover-zoom ripple rounded ripple-surface">
+											<img src="@item.ImageUrl"
+												 class="w-100 rounded-3" />
+											<a href="#!">
+												<div class="hover-overlay">
+													<div class="mask" style="background-color: rgba(253, 253, 253, 0.15);"></div>
+												</div>
+											</a>
+										</div>
+									</div>
+									<div class="col-md-6 col-lg-6 col-xl-6">
+										<h2>@item.Name</h2>
+										<div class="d-flex flex-row">
+											<div class="text-danger mt-1 mb-2 me-5">
+												@for (var i = 0; i < item.Star; i++)
+												{
+													<i class="bi bi-star fa-2x" style="font-size:30px"></i>
+												}
+											</div>
+											<div class="text-danger mt-1 mb-2 me-2" style="font-size:30px; text-align:center;">
+												@item.Rate
+											</div>
+										</div>
+										<p class="mb-4 mb-md-0" style="font-size:25px">
+											@item.Description
+										</p>
+									</div>
+									<div class="col-md-6 col-lg-3 col-xl-3 border-sm-start-none border-start">
+										<div class="d-flex flex-row align-items-center mb-1">
+											<h3 class="mb-1 me-1">$@item.Price</h3>
+										</div>
+										<div class="d-flex flex-column mt-4">
+
+											<a asp-controller="Hotels" asp-action="GetDetailsView"
+											   asp-route-id="@item.Id" title="Details" class="mt-1">
+												<button class="btn btn-outline-primary btn-sm col-12" style="font-size:25px" type="button">
+													Details
+												</button>
+											</a>
+
+											<a asp-controller="Hotels" asp-action="GetEditView"
+											   asp-route-id="@item.Id" title="Edit" class="mt-2">
+												<button class="btn btn-outline-success btn-sm col-12" style="font-size:25px" type="button">
+													Edit
+												</button>
+											</a>
+											<a asp-controller="Hotels" asp-action="GetDeleteView"
+											   asp-route-id="@item.Id" title="Delete" class="mt-2">
+												<button class="btn btn-outline-danger btn-sm col-12" style="font-size:25px" type="button">
+													Delete
+												</button>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	}
+}
+<a asp-controller="Cities" asp-action="GetIndexView">Back to List</a>
