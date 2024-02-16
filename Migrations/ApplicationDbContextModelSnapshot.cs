@@ -196,13 +196,13 @@ namespace Final_Project.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8f1318ab-8758-4182-a259-327beb87205f",
+                            Id = "0eac0d44-bebc-40f3-bd3d-74730293e9c5",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "7162caf4-3625-4c63-902c-b4222e0af7ca",
+                            Id = "dbc5a4d9-1508-478a-b78d-9a3f906a27ff",
                             Name = "User",
                             NormalizedName = "USER"
                         });

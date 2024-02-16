@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fwQc/cOJ6V1bpRr27rN8nEE1QJAXDihxGb/RzkvMuMk=",
+  "Hash": "YPK74KKUfkrYCGxPLlaL7RwzaLgBPAD1pcpnfkeO2cg=",
   "Source": "Final Project",
   "BasePath": "_content/Final Project",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Abdallah Ashraf\\programming projects\\Final project ITI .Net MVC\\Final Project\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Final Project.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Abdallah Ashraf\\programming projects\\Final project ITI .Net MVC\\Final Project\\wwwroot\\css\\Login.css",
+      "SourceId": "Final Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Abdallah Ashraf\\programming projects\\Final project ITI .Net MVC\\Final Project\\wwwroot\\",
+      "BasePath": "_content/Final Project",
+      "RelativePath": "css/Login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Login.css"
     },
     {
       "Identity": "D:\\Abdallah Ashraf\\programming projects\\Final project ITI .Net MVC\\Final Project\\wwwroot\\css\\site.css",

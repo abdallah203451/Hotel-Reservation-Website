@@ -21,6 +21,18 @@ namespace Final_Project.Controllers
 			_mapper = mapper;
 		}
 
+		[HttpGet]
+		public IActionResult GetIndexViewLogin()
+		{
+			return View("Login");
+		}
+
+		[HttpGet]
+		public IActionResult GetIndexViewRegister()
+		{
+			return View("Register");
+		}
+
 		[HttpPost]
 		public async Task<IActionResult> Register(UserDto userDto) // FolanAlfolani.png
 		{
@@ -43,6 +55,24 @@ namespace Final_Project.Controllers
 			}
 			
 		}
+
+		[HttpPost]
+		public async Task<IActionResult> Login(LoginDto loginDto) // FolanAlfolani.png
+		{
+			bool isvalidUser = false;
+
+			try
+			{
+				var user = await _userManager.FindByEmailAsync(loginDto.Email);
+				isvalidUser = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+			}
+			catch (Exception ex)
+			{
+
+			}
+
+			return RedirectToAction("GetIndexView", "Hotels");
+        }
 
 	}
 }

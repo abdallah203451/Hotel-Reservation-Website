@@ -1,1 +1,36 @@
-﻿
+﻿@model UserDto
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Final_Project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+
+<form method="post" asp-controller="Users" asp-action="Register" enctype="multipart/form-data" id="myform" class="myform">
+    <p>Create account</p>
+    <input type="hidden" asp-for="Id" />
+
+    <label for="firstname">First name</label>
+    <input asp-for="FirstName" class="s" type="text" placeholder="First name" id="firstname">
+
+    <label for="lastname">Last name</label>
+    <input asp-for="LastName" class="s" type="text" placeholder="Last name" id="lastname">
+
+    <label for="email">Email</label>
+    <input asp-for="Email" class="s" type="text" id="email">
+
+    <label for="pass">Password</label>
+    <input asp-for="Password" class="s" type="password" placeholder="At least six characters" id="pass">
+
+    <label for="Phone">Phone</label>
+    <input asp-for="Phone" class="s" type="text" placeholder="Phone number" id="Phone">
+
+    <div>
+        <input type="submit" type="button" value="Register" class="btn">
+        <p class="text">
+            Already have an account?  <a asp-controller="Users" asp-action="GetIndexViewLogin">Sign in</a>
+        </p>
+    </div>
+</form>

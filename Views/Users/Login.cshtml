@@ -1,1 +1,25 @@
-﻿
+﻿@model LoginDto 
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Final_Project</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+
+<form method="post" asp-controller="Users" asp-action="Login" id="myform1" enctype="multipart/form-data">
+    <p>Login</p>
+    <input type="hidden" asp-for="Id" />
+    <label for="Email">Email</label>
+    <input type="text" asp-for="Email" class="s" placeholder="Email" id="Email">
+    <label for="pass">Password</label>
+    <input asp-for="Password" class="s" type="password" placeholder="Password" id="Pass">
+
+    <div>
+        <input type="submit" type="button" value="Login" class="btn">
+        <p class="text">
+            Dont't have an account? <a asp-controller="Users" asp-action="GetIndexViewRegister">Sign up</a>
+        </p>
+    </div>
+</form>

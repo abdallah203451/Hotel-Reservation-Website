@@ -822,3 +822,4 @@ D:\Abdallah Ashraf\programming projects\Final project ITI .Net MVC\Final Project
 D:\Abdallah Ashraf\programming projects\Final project ITI .Net MVC\Final Project\obj\Debug\net8.0\ref\Final Project.dll
 D:\Abdallah Ashraf\programming projects\Final project ITI .Net MVC\Final Project\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\Abdallah Ashraf\programming projects\Final project ITI .Net MVC\Final Project\bin\Debug\net8.0\AutoMapper.dll
+D:\Abdallah Ashraf\programming projects\Final project ITI .Net MVC\Final Project\obj\Debug\net8.0\Final Project.sourcelink.json

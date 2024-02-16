@@ -1,0 +1,85 @@
+﻿form {
+    border-radius: 4px;
+    border: 1px solid #dedede;
+    width: 27%;
+    margin: auto;
+    padding: 0px 20px;
+    text-align: left;
+    min-width: 300px;
+    margin-top:50px;
+}
+
+label {
+    margin: 10px 0px;
+}
+
+input::placeholder {
+    color: #b1b0b0;
+    font-size: 15px;
+}
+
+div {
+    text-align: center;
+    width: 100%;
+}
+
+.btn {
+    margin: 5px auto;
+    width: 95%;
+    border-width: 1px;
+    height: 30px;
+    border: 1px solid #b79033;
+    background: linear-gradient( #fde7ae,#f3c451);
+    font-size: 16px;
+}
+
+    .btn:hover {
+        background: linear-gradient( #f5e5bc,#eec660);
+    }
+
+.s {
+    height: 25px;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0px;
+    font-size: 15px;
+}
+
+.text, a {
+    font-size: 16px;
+}
+
+a {
+    display: inline;
+}
+
+@media only screen and (max-width: 768px) {
+    form {
+        width: 90%;
+        font-size: 60px;
+    }
+
+    body {
+        background-color: black;
+    }
+}
+
+.g {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input[type="date"] {
+    background-color: #f3c451;
+    border: none;
+    padding: 15px;
+}
+
+.list {
+    height: 20px;
+}
+
+/*.myform {
+    display: none;
+}*/
