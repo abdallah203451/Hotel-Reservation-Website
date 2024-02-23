@@ -10,7 +10,7 @@
 
 <form method="post" asp-controller="Users" asp-action="Register" enctype="multipart/form-data" id="myform" class="myform">
     <p>Create account</p>
-    <input type="hidden" asp-for="Id" />
+@*     <input type="hidden" asp-for="Id" /> *@
 
     <label for="firstname">First name</label>
     <input asp-for="FirstName" class="s" type="text" placeholder="First name" id="firstname">
@@ -26,6 +26,10 @@
 
     <label for="Phone">Phone</label>
     <input asp-for="Phone" class="s" type="text" placeholder="Phone number" id="Phone">
+
+    <label for="isAdmin">as admin</label>
+    <input id="Remember" type="checkbox" value="true" name="isAdmin" />
+    <input type="hidden" value="false" name="isAdmin" />
 
     <div>
         <input type="submit" type="button" value="Register" class="btn">

@@ -4,8 +4,7 @@ namespace Final_Project.Models
 {
 	public class UserDto
 	{
-        public int Id { get; set; }
-        [DisplayName("FirstName")]
+
 		public string FirstName { get; set; }
 
 		[DisplayName("LastName")]

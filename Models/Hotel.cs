@@ -6,6 +6,11 @@ namespace Final_Project.Models
 {
 	public class Hotel
 	{
+		public Hotel()
+		{
+			Users = new List<User>();
+		}
+
 		public int Id { get; set; }
 
 
@@ -46,6 +51,9 @@ namespace Final_Project.Models
 		//Navigation Property
 		[ValidateNever]
 		public City City { get; set; }
+
+		[ValidateNever]
+		public List<User> Users { get; set; }
 
 	}
 }

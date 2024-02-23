@@ -5,6 +5,11 @@ namespace Final_Project.Models
 {
 	public class User : IdentityUser
 	{
+		public User()
+		{
+			Hotels = new List<Hotel>();
+		}
+
 		[DisplayName("FirstName")]
 		public string FirstName { get; set; }
 
@@ -13,5 +18,6 @@ namespace Final_Project.Models
 
 		[DisplayName("Phone")]
 		public string Phone { get; set; }
+		public List<Hotel> Hotels { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Final_Project.Data;
 using Final_Project.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,12 +10,17 @@ namespace Final_Project.Controllers
 	public class HotelsController : Controller
 	{
 		ApplicationDbContext _context;
+		//SignInManager<User> signinManager;
+		UserManager<User> userManager;
 		IWebHostEnvironment _webHostEnvironment;
 
-		public HotelsController(IWebHostEnvironment webHostEnvironment, ApplicationDbContext context)
+		public HotelsController(IWebHostEnvironment webHostEnvironment, ApplicationDbContext context, UserManager<User> userManager)
 		{
 			_webHostEnvironment = webHostEnvironment;
 			_context = context;
+			this.userManager = userManager;
+			//this.signinManager = signinManager;
+			this.userManager = userManager;
 		}
 
 		[HttpGet]
@@ -83,7 +89,7 @@ namespace Final_Project.Controllers
 				hotel.ImageUrl = "\\images\\No_Image.png";
 			}
 
-			            if (hotel.Rate > 10 || hotel.Rate < 0)
+			if (hotel.Rate > 10 || hotel.Rate < 0)
             {
                 ModelState.AddModelError(string.Empty, "Rate mustn't be less than 0 or greater than 10.");
             }
@@ -95,6 +101,7 @@ namespace Final_Project.Controllers
             {
                 ModelState.AddModelError(string.Empty, "Price mustn't be less than 100.");
             }
+
 			if (ModelState.IsValid == true)
 			{
 				_context.Hotels.Add(hotel);
@@ -217,22 +224,20 @@ namespace Final_Project.Controllers
 			}
 		}
 
-
-
-
-		public string GreetVisitor()
+		[HttpGet]
+		public async Task<IActionResult> BookHotel(int id, string? email)
 		{
-			return "Welcome to Sunrise!";
+
+			Hotel hotel = _context.Hotels.FirstOrDefault(e=> e.Id == id);
+
+			User user = await userManager.FindByEmailAsync(email);
+
+			//hotel.Users.Add(user);
+			user.Hotels.Add(hotel);
+
+			_context.SaveChanges();
+			return RedirectToAction("GetIndexView");
 		}
 
-		public string GreetUser(string name)
-		{
-			return $"Hi {name}\nHow are you?";
-		}
-
-		public string GetAge(string name, int birthYear)
-		{
-			return $"Hi {name}\nYou are {DateTime.Now.Year - birthYear} years old.";
-		}
 	}
 }

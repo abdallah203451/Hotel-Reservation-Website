@@ -167,6 +167,21 @@ namespace Final_Project.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("HotelUser", b =>
+                {
+                    b.Property<int>("HotelsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsersId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("HotelsId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("HotelUser");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -196,13 +211,13 @@ namespace Final_Project.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0eac0d44-bebc-40f3-bd3d-74730293e9c5",
+                            Id = "8c27bcbf-b700-4bd0-801b-d84f64c9645f",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "dbc5a4d9-1508-478a-b78d-9a3f906a27ff",
+                            Id = "c99e5054-4c72-43f2-a3b9-e4baffa54933",
                             Name = "User",
                             NormalizedName = "USER"
                         });
@@ -323,6 +338,21 @@ namespace Final_Project.Migrations
                         .IsRequired();
 
                     b.Navigation("City");
+                });
+
+            modelBuilder.Entity("HotelUser", b =>
+                {
+                    b.HasOne("Final_Project.Models.Hotel", null)
+                        .WithMany()
+                        .HasForeignKey("HotelsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Final_Project.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
